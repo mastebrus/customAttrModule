@@ -1,0 +1,22 @@
+
+
+<form id="custom-attribute-form">
+    <label for="custom_attribute"><?php echo __('Custom Attribute'); ?></label>
+    <input type="text" id="custom_attribute" name="custom_attribute" required minlength="3" />
+    <span id="custom_attribute_error" style="color: red; display: none;"><?php echo __('Please enter at least 3 characters.'); ?></span>
+</form>
+
+
+
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        $('#custom_attribute').on('input', function() {
+            var value = $(this).val();
+            if (value.length < 3) {
+                $('#custom_attribute_error').show();
+            } else {
+                $('#custom_attribute_error').hide();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Register dependencies for the UpdateCustomAttribute command -->
+    <type name="Vendor\CustomAttribute\Console\UpdateProductAttribute">
+        <arguments>
+            <argument name="state" xsi:type="object">Magento\Framework\App\State</argument>
+            <argument name="productRepository" xsi:type="object">Magento\Catalog\Api\ProductRepositoryInterface</argument>
+            <argument name="searchCriteriaBuilder" xsi:type="object">Magento\Framework\Api\SearchCriteriaBuilder</argument>
+        </arguments>
+    </type>
+
+    <!-- Add the command to the command list -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Vendor\CustomAttribute\Console\UpdateProductAttribute" xsi:type="object">Vendor\CustomAttribute\Console\UpdateProductAttribute</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>
